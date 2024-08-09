@@ -1,0 +1,14 @@
+// Заголовки, загальні БЕМ блоки та інше...
+.link {
+	color: $accentColor;
+	fill: $accentColor;
+	transition:
+		color 0.3s,
+		fill 0.3s;
+	@media (any-hover: hover) {
+		&:hover {
+			color: $mainColor;
+			fill: $mainColor;
+		}
+	}
+}

@@ -1,0 +1,84 @@
+//====================================================================================================
+.footer {
+	padding: toRem(50) 0 toRem(20);
+	border-top: 1px solid $accentDarkColor;
+	color: $accentColor;
+	fill: $accentColor;
+	&__container {
+		@media (min-width: $tablet) {
+			display: flex;
+			gap: toRem(30);
+			justify-content: space-between;
+		}
+
+		@media (min-width: $mobileSmall) {
+			@media (max-width: $tablet) {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				row-gap: toRem(30);
+				column-gap: toRem(50);
+			}
+		}
+
+		@media (max-width: $mobileSmall) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: toRem(30);
+		}
+	}
+	&__logo {
+		@media (max-width: $mobile) {
+			grid-column: span 2;
+			align-self: center;
+			justify-self: center;
+			max-width: toRem(100);
+		}
+	}
+	&__society {
+		align-items: center;
+		@media (max-width: $mobile) {
+			grid-column: span 2;
+			justify-content: center;
+			order: 4;
+		}
+	}
+	&__phone {
+		@media (min-width: $mobileSmall) {
+			@media (max-width: $tablet) {
+				justify-content: flex-end;
+				justify-self: start;
+			}
+		}
+		@media (max-width: $mobileSmall) {
+			align-items: center;
+			text-align: center;
+		}
+	}
+	&__address {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(10);
+		@media (max-width: $mobile) {
+			text-align: right;
+		}
+		@media (max-width: $mobileSmall) {
+			align-items: center;
+			text-align: center;
+		}
+	}
+	&__address-title {
+		font-weight: 700;
+		font-size: toRem(20);
+	}
+	&__addresses {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(5);
+		font-size: toRem(18);
+		font-weight: 700;
+	}
+	&__address-item {
+	}
+}
+//====================================================================================================

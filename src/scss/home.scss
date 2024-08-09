@@ -1,0 +1,196 @@
+//====================================================================================================
+.main-block {
+	height: 100svh;
+	position: relative;
+	overflow: hidden;
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: $bgColor;
+		opacity: 0.5;
+		z-index: 2;
+	}
+	&::after {
+		content: '';
+		position: absolute;
+		z-index: 2;
+		background-color: $bgColor;
+		width: 100vw;
+		height: 10vw;
+		bottom: 0;
+		pointer-events: none;
+		background: linear-gradient(rgb(9, 9, 13, 0), #09090d);
+	}
+	&__video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	&__container {
+		position: relative;
+		z-index: 3;
+		height: 100%;
+		display: flex;
+		align-items: center;
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(30);
+	}
+	&__title {
+		font-weight: 700;
+		@include adaptiveValue('font-size', 64, 32);
+	}
+	&__sub-title {
+		line-height: 1.5;
+		padding-left: toRem(15);
+		margin-left: toRem(5);
+		position: relative;
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: toRem(2);
+			background-color: $accentColor;
+		}
+		@include adaptiveValue('font-size', 22, 16);
+		@media (min-width: $mobile) {
+			max-width: 70%;
+		}
+	}
+	&__button-to-bottom {
+		fill: $accentColor;
+		width: toRem(50);
+		height: toRem(50);
+		position: absolute;
+		z-index: 3;
+		bottom: toRem(60);
+		left: 50%;
+		transform: translateX(-50%);
+		animation: arrow 1s infinite ease-in-out;
+		@keyframes arrow {
+			0% {
+				bottom: toRem(60);
+			}
+			50% {
+				bottom: toRem(50);
+			}
+			100% {
+				bottom: toRem(60);
+			}
+		}
+	}
+}
+//====================================================================================================
+.girls {
+	@include adaptiveValue('padding-top', 80, 40);
+	@include adaptiveValue('padding-bottom', 80, 40);
+	&__container {
+	}
+	&__title {
+		font-weight: 700;
+		@include adaptiveValue('margin-bottom', 50, 30);
+		@include adaptiveValue('font-size', 40, 20);
+	}
+	&__list {
+		@media (min-width: $mobileSmall) {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			column-gap: toRem(30);
+			row-gap: toRem(50);
+			@media (max-width: $pc) {
+				column-gap: toRem(15);
+				row-gap: toRem(30);
+			}
+			@media (max-width: $tablet) {
+				grid-template-columns: repeat(3, 1fr);
+			}
+			@media (max-width: $mobile) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+		@media (max-width: $mobileSmall) {
+			display: flex;
+			flex-direction: column;
+			gap: toRem(30);
+		}
+	}
+}
+.title {
+}
+.card {
+	position: relative;
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: $greyColor;
+		border-radius: 10px;
+		transition: transform 0.5s;
+	}
+	@media (any-hover: hover) {
+		&:hover::before {
+			transform: translateY(-7px);
+		}
+		&:hover {
+			.card__wrapper {
+				transform: translateY(-10px);
+			}
+			.card__photo img {
+				transform: scale(1.1);
+			}
+		}
+	}
+	&__wrapper {
+		position: relative;
+		z-index: 2;
+		border-radius: 10px;
+		overflow: hidden;
+		display: block;
+		background-color: $accentDarkColor;
+		border: 1px solid $accentDarkColor;
+		transition: transform 0.5s;
+	}
+	&__photo {
+		aspect-ratio: 290/430;
+		position: relative;
+		overflow: hidden;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.5s;
+		}
+	}
+	&__content {
+		padding: toRem(20) toRem(15);
+		display: flex;
+		gap: toRem(15);
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__name {
+		font-weight: 700;
+		font-size: toRem(18);
+	}
+	&__price {
+		text-align: right;
+		font-size: toRem(14);
+	}
+}
